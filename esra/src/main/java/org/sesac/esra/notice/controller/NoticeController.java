@@ -48,4 +48,26 @@ public class NoticeController {
 		
 		return "notice/detail";
 	}
+	
+	@RequestMapping("/notice/update_form")
+	public String notice_update_form(@RequestParam("no") int no, Model model) {
+		NoticeVo vo = session.selectOne(ns+".detail", no);
+		model.addAttribute("detail", vo);
+		
+		return "notice/update_form";
+	}
+	
+	@RequestMapping("/notice/update_action")
+	public String notice_update_action(NoticeVo vo) {
+		session.update(ns+".update", vo);
+		
+		return "redirect:/notice/list";
+	}
+	
+	@RequestMapping("/notice/delete_action")
+	public String notice_delete_action(@RequestParam("no") int no) {
+		session.delete(ns+".delete", no);
+		
+		return "redirect:/notice/list";
+	}
 }

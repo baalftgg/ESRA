@@ -21,4 +21,18 @@
 	select * from notice_board
 	where no = #{no}
 	</select>
+	
+	<!-- 공지사항 수정 -->
+	<update id="update" parameterType="org.sesac.esra.notice.vo.NoticeVo">
+	update notice_board
+	set title=#{title}, content=#{content}, writer=#{writer}
+	where no = #{no}
+	</update>
+	
+	<!-- 공지사항 삭제 -->
+	<update id="delete">
+	delete from notice_board
+	where no = #{no}
+	</update>
+	
 </mapper>

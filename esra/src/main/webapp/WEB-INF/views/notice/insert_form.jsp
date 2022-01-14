@@ -9,6 +9,9 @@
 </head>
 <body>
 
+	<div id="nav">
+		<%@ include file="../notice/nav.jsp" %>
+	</div>
 	<form action="insert_action" method="post">
 	
 	<label>제목</label>
